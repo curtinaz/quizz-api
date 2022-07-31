@@ -19,4 +19,10 @@ class QuizzesController extends Controller
 
         return response($quizes, 200);
     }
+
+    public function retrieve(Request $req) {
+        $quiz = Quizes::where("id", $req->id)->with("banner")->first();
+
+        return response($quiz, 200);
+    }
 }
