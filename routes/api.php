@@ -5,3 +5,4 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get("/quizzes", [QuizzesController::class, "index"]);
+Route::get("/quizzes/{quizzId}", [QuizzesController::class, "retrieve"]);

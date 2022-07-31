@@ -21,7 +21,7 @@ class QuizzesController extends Controller
     }
 
     public function retrieve(Request $req) {
-        $quiz = Quizes::where("id", $req->id)->with("banner")->first();
+        $quiz = Quizes::where("id", $req->quizzId)->with("banner")->first();
 
         return response($quiz, 200);
     }
