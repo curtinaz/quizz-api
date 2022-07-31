@@ -21,7 +21,9 @@ class QuizzesController extends Controller
     }
 
     public function retrieve(Request $req) {
-        $quiz = Quizes::where("id", $req->quizzId)->with("banner")->first();
+        if(!$quiz = Quizes::where("id", $req->quizzId)->with("banner")->first()) {
+            return response("Página não encontrada", 404);
+        }
 
         return response($quiz, 200);
     }
